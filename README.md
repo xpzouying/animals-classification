@@ -32,5 +32,11 @@ Save images in ImageFolder way.
 3. run it: `python animals-classification.py`
 
 
+## result ##
+
+![image show](./images/cnn_01.jpg)
+![result](./images/cnn_02.jpg)
+
+
 ## Author ##
 Feel free to contact me if you have any questions: xpzouying@gmail.com
