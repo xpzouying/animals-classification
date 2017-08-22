@@ -16,13 +16,13 @@ Pretrained resnet18 + one full connection which from input 2048 to output num_cl
 
 Save images in ImageFolder way.
 
-> root/dog/xxx.png
-> root/dog/xxy.png
-> root/dog/xxz.png
-> 
-> root/cat/123.png
-> root/cat/nsdf3.png
-> root/cat/asd932_.png
+> root/dog/xxx.png  
+> root/dog/xxy.png  
+> root/dog/xxz.png  
+>   
+> root/cat/123.png  
+> root/cat/nsdf3.png  
+> root/cat/asd932_.png  
 
 
 ## run the network ##
@@ -34,7 +34,12 @@ Save images in ImageFolder way.
 
 ## result ##
 
+### test image show
+
 ![image show](./images/cnn_01.jpg)
+
+### the result
+
 ![result](./images/cnn_02.jpg)
 
 
