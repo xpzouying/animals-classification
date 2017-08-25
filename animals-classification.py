@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import os
+import argparse
 
 import torch
 import torch.nn as nn
@@ -13,8 +14,16 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 
+parser = argparse.ArgumentParser(description='animal classification')
+parser.add_argument('--dir', required=True, type=str,
+                    help='the root of image data directory')
+parser.add_argument('--test_img', required=True, type=str,
+                    help='test image')
+
+args = parser.parse_args()
+
 # dataset path
-data_dir = '~/_datasets/_zy_data'
+data_dir = args.dir
 data_dir = os.path.expanduser(data_dir)
 
 # dataset pre-process
@@ -64,7 +73,7 @@ for inputs, labels in train_dataloader:
     optimizer.step()
 
 # begin to test
-image_file = '/home/zouying/duoduo3.jpg'
+image_file = args.test_img
 
 # if want to show image file, run the following
 # img_show_1 = plt.imread(image_file)
@@ -83,7 +92,9 @@ if torch.cuda.is_available():
 model.eval()
 target = model(img2)
 
+# get the predict classes
 _, pred = torch.max(target.data, 1)
 print('all classes: ', tset.classes)
 print('all classes prop: ', nn.functional.softmax(target))
 print('prediction: ', pred[0], ' classes: ', tset.classes[pred[0]])
+
