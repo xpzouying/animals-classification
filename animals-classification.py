@@ -31,7 +31,7 @@ train_transform= transforms.Compose([
     transforms.Scale([512, 512]),
     transforms.ToTensor(),
 ])
-    
+
 # ImageFolder: https://github.com/pytorch/vision#imagefolder
 tset = ImageFolder(data_dir, transform=train_transform)
 train_dataloader = DataLoader(tset, batch_size=4, shuffle=True)
@@ -62,10 +62,10 @@ for inputs, labels in train_dataloader:
         # use cpu
         inputs = Variable(inputs)
         labels = Variable(labels)
-        
+
     # zero the parameter gradients
     optimizer.zero_grad()
-    
+
     # forward
     outputs = model(inputs)
     loss = loss_fn(outputs, labels)
